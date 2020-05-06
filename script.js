@@ -15,7 +15,7 @@ var bal = {
     balPositie: "links",
     gooi: function () {
         if (this.balPositie !== "links") {
-            throw Error("De bal is al gegooid!")
+            throw TypeError("De bal is al gegooid!")
         }
         this.draw(300, 50);
         this.balPositie = "midden";
@@ -23,7 +23,7 @@ var bal = {
 
     vang: function () {
         if (this.balPositie !== "midden") {
-            throw Error("De bal is niet in een plek waar die gevangen kan worden!")
+            throw Error("De bal is nog niet gegooid!")
         }
         this.draw(500, 250);
         this.balPositie = "rechts";
@@ -72,7 +72,7 @@ function desperate(expression)
                 break;
           }
     } catch (error) {
-        show.innerHTML = error.message;
+        show.innerHTML = error.message + "<br>" + error.name;
     }
 }
 
